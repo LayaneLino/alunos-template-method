@@ -12,6 +12,7 @@ import org.alunostm.repository.AlunoTemplateMethod;
 import org.alunostm.templateMethod.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class AlunoController {
 
@@ -46,6 +47,7 @@ public class AlunoController {
     @FXML
     void tratarBotaoGerar() {
         int selecao = comboOrdenacao.getSelectionModel().getSelectedIndex();
+
         if (selecao == -1) {
             return;
         }
@@ -63,6 +65,13 @@ public class AlunoController {
         };
 
         try {
+            Iterator<Aluno> iterator = alunoTemplateMethod.listagemDeAlunos();
+
+            ArrayList<Aluno> listaParaTabela = new ArrayList<>();
+            while (iterator.hasNext()) {
+                listaParaTabela.add(iterator.next());
+            }
+
             if (selecao == 1) {
                 colNome.setCellValueFactory(cellData ->
                         new SimpleStringProperty(cellData.getValue().getNomePadronizado()));
@@ -70,14 +79,12 @@ public class AlunoController {
                 colNome.setCellValueFactory(cellData ->
                         new SimpleStringProperty(cellData.getValue().getNome()));
             }
-            atualizarTabela(alunoTemplateMethod.listagemDeAlunos());
+
+            tabelaAlunos.setItems(FXCollections.observableArrayList(listaParaTabela));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void atualizarTabela(ArrayList<Aluno> lista) {
-        ObservableList<Aluno> dados = FXCollections.observableArrayList(lista);
-        tabelaAlunos.setItems(dados);
-    }
 }
