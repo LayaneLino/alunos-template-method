@@ -1,7 +1,6 @@
 package org.alunostm.templateMethod;
 
 import org.alunostm.entity.Aluno;
-import org.alunostm.repository.AlunoTemplateMethod;
 
 public class PorSituEnfCursNome extends AlunoTemplateMethod {
 

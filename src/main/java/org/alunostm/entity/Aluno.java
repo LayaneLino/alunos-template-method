@@ -14,12 +14,11 @@ public class Aluno {
     }
 
     public Aluno(String str){
-        String[] vetor = str.split(";");
-        this.nome = vetor[0].trim();
-        String numeroCurso = vetor[1].trim();
-        this.curso = CursoEnum.valueOf("curso" + numeroCurso);
-        this.situacao = vetor[2].trim().equalsIgnoreCase("sim");
-        this.enfase = vetor[3].trim();
+        String[] dados = str.split(";");
+        this.nome = dados[0].trim();
+        this.curso = CursoEnum.converteCodigoCurso(dados[1].trim());
+        this.situacao = dados[2].trim().equalsIgnoreCase("sim");
+        this.enfase = dados[3].trim();
     }
 
     public String getNomePadronizado() {
@@ -31,7 +30,7 @@ public class Aluno {
         int indiceSobrenome = partes.length - 1;
         String ultimo = partes[indiceSobrenome];
 
-        String ignorar = "Filho Júnior Junior Neto Neto Sobrinho";
+        String ignorar = "Filho Júnior Junior Neto Sobrinho";
 
         if (ignorar.toLowerCase().contains(ultimo.toLowerCase()) && partes.length > 2) {
             String sobrenomeAnterior = partes[partes.length - 2];

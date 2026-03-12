@@ -8,7 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.alunostm.entity.Aluno;
-import org.alunostm.repository.AlunoTemplateMethod;
+import org.alunostm.templateMethod.AlunoTemplateMethod;
 import org.alunostm.templateMethod.*;
 
 import java.util.ArrayList;

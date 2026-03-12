@@ -1,4 +1,4 @@
-package org.alunostm.repository;
+package org.alunostm.templateMethod;
 
 import org.alunostm.entity.Aluno;
 
