@@ -45,7 +45,7 @@ public class AlunoController {
     }
 
     @FXML
-    void tratarBotaoGerar() {
+    void botaoListar() {
         int selecao = comboOrdenacao.getSelectionModel().getSelectedIndex();
 
         if (selecao == -1) {

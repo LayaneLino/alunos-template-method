@@ -24,7 +24,7 @@
     <HBox alignment="CENTER_LEFT" spacing="10.0">
         <Label text="Filtrar:"/>
         <ComboBox fx:id="comboOrdenacao" prefWidth="300.0" promptText="Selecione o filtro de ordenação..."/>
-        <Button mnemonicParsing="false" onAction="#tratarBotaoGerar" prefWidth="120.0"
+        <Button mnemonicParsing="false" onAction="#botaoListar" prefWidth="120.0"
                 style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Listar"/>
     </HBox>
 
