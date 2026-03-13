@@ -30,10 +30,10 @@
 
     <TableView fx:id="tabelaAlunos" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="colNome" prefWidth="250.0" text="Nome"/>
-            <TableColumn fx:id="colCurso" prefWidth="200.0" text="Curso"/>
-            <TableColumn fx:id="colEnfase" prefWidth="150.0" text="Ênfase"/>
-            <TableColumn fx:id="colSituacao" prefWidth="100.0" text="Situação"/>
+            <TableColumn sortable="false" fx:id="colNome" prefWidth="250.0" text="Nome"/>
+            <TableColumn sortable="false" fx:id="colCurso" prefWidth="200.0" text="Curso"/>
+            <TableColumn sortable="false" fx:id="colEnfase" prefWidth="150.0" text="Ênfase"/>
+            <TableColumn sortable="false" fx:id="colSituacao" prefWidth="100.0" text="Situação"/>
         </columns>
         <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
