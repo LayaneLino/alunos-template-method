@@ -22,30 +22,40 @@ public class Aluno {
     }
 
     public String getNomePadronizado() {
-        String[] partes = this.nome.trim().split(" ");
-        if (partes.length <= 1) {
+        String[] partes = this.nome.trim().split("\\s+");
+
+        if (partes.length <= 1){
             return this.nome;
         }
 
-        int indiceSobrenome = partes.length - 1;
-        String ultimo = partes[indiceSobrenome];
+        String sufixosIgnorar = " Filho Filha Júnior Junior Neto Neta Sobrinho Sobrinha ";
+        String preposicoesIgnorar = " de da do das dos ";
 
-        String ignorar = "Filho Júnior Junior Neto Sobrinho";
+        int ultimoIndice = partes.length - 1;
+        String ultimo = partes[ultimoIndice];
 
-        if (ignorar.toLowerCase().contains(ultimo.toLowerCase()) && partes.length > 2) {
-            String sobrenomeAnterior = partes[partes.length - 2];
-            return sobrenomeAnterior + ", " + juntarNomes(partes, partes.length - 2);
+        int indiceDeCorte;
+
+        if (sufixosIgnorar.toLowerCase().contains(" " + ultimo.toLowerCase() + " ") && partes.length > 2) {
+            int i = ultimoIndice - 1;
+
+            if (preposicoesIgnorar.toLowerCase().contains(" " + partes[i].toLowerCase() + " ") && i > 0) {
+                indiceDeCorte = i - 1;
+            } else {
+                indiceDeCorte = i;
+            }
+        } else {
+            indiceDeCorte = ultimoIndice;
         }
 
-        return ultimo + ", " + juntarNomes(partes, partes.length - 1);
+        String sobrenomeDeDestaque = partes[indiceDeCorte];
+        return sobrenomeDeDestaque + ", " + montarRestante(partes, indiceDeCorte);
     }
 
-    private String juntarNomes(String[] partes, int indiceOmitidoParaNaoRepetir) {
+    private String montarRestante(String[] partes, int indiceOmitido) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < partes.length; i++) {
-            if (i == indiceOmitidoParaNaoRepetir) {
-                continue;
-            }
+            if (i == indiceOmitido) continue;
             sb.append(partes[i]).append(" ");
         }
         return sb.toString().trim();
