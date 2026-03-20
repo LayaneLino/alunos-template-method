@@ -11,7 +11,6 @@ import org.alunostm.entity.Aluno;
 import org.alunostm.templateMethod.AlunoTemplateMethod;
 import org.alunostm.templateMethod.*;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class AlunoController {
