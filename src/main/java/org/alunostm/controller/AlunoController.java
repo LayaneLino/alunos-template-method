@@ -67,9 +67,10 @@ public class AlunoController {
         try {
             Iterator<Aluno> iterator = alunoTemplateMethod.listagemDeAlunos();
 
-            ArrayList<Aluno> listaParaTabela = new ArrayList<>();
+            ObservableList<Aluno> dadosTabela = FXCollections.observableArrayList();
+
             while (iterator.hasNext()) {
-                listaParaTabela.add(iterator.next());
+                dadosTabela.add(iterator.next());
             }
 
             if (selecao == 1) {
@@ -80,7 +81,7 @@ public class AlunoController {
                         new SimpleStringProperty(cellData.getValue().getNome()));
             }
 
-            tabelaAlunos.setItems(FXCollections.observableArrayList(listaParaTabela));
+            tabelaAlunos.setItems(FXCollections.observableArrayList(dadosTabela));
 
         } catch (Exception e) {
             e.printStackTrace();
