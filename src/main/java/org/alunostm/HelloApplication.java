@@ -1,4 +1,4 @@
-package org.alunostm.view;
+package org.alunostm;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
